@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wilquisonf-hub.github.io/lara-maehata-nail-design/sitemap.xml

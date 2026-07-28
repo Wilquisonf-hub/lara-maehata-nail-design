@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<defs>
+      <linearGradient id="goldMetallic" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#79500F"/>
+        <stop offset="18%" stop-color="#B57E24"/>
+        <stop offset="38%" stop-color="#E7C66D"/>
+        <stop offset="50%" stop-color="#FFF0B2"/>
+        <stop offset="63%" stop-color="#C89432"/>
+        <stop offset="82%" stop-color="#E2BD5D"/>
+        <stop offset="100%" stop-color="#855A14"/>
+      </linearGradient>
+      <linearGradient id="champagneGlow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#FBF8F2"/>
+        <stop offset="100%" stop-color="#F1E4CF"/>
+      </linearGradient>
+      <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#3A2B24" flood-opacity="0.12"/>
+      </filter>
+    </defs>
+
+<polygon points="128.00,23.00 140.73,115.27 233.00,128.00 140.73,140.73 128.00,233.00 115.27,140.73 23.00,128.00 115.27,115.27" fill="url(#goldMetallic)"/>
+</svg>

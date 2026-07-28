@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+
+# Vercel
+.vercel
+
+# Logs / deps (não usados neste projeto estático, mas por segurança)
+node_modules/
+*.log

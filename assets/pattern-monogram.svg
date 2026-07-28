@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000"><defs><pattern id="p" width="260" height="260" patternUnits="userSpaceOnUse" patternTransform="rotate(-9)"><g transform="translate(30,30) scale(0.20)" opacity="0.16"><g fill="#B88A2A" opacity="1.0" >
+<path d="M570 239C567 172 545 120 506 83C493 70 473 59 446 49C420 39 398 34 380 34L227 31V658H321V689H44V658H138V31H44V0H589L602 239Z" transform="translate(246.000,690.000) scale(0.610000,-0.610000)"/>
+</g>
+<g fill="#B88A2A" opacity="1.0" >
+<path d="M848 31H755V658H848V689H657L447 169L263 689H66V658H122C140 658 150 650 152 635V117C152 82 143 56 124 40C117 34 95 31 58 31V0H278V31C239 31 217 34 210 41C193 58 185 83 185 117V617L406 10L421 11L663 620V31H570V0H848Z" transform="translate(310.365,716.000) scale(0.570000,-0.570000)"/>
+</g>
+<path d="M190 655 C315 772 496 790 641 716 C724 674 774 590 775 472 C776 358 747 265 691 206" fill="none" stroke="#B88A2A" stroke-width="10" stroke-linecap="round"/>
+<path d="M204 656 C334 740 489 750 613 697" fill="none" stroke="#B88A2A" stroke-width="3.5" stroke-linecap="round" opacity="0.65"/>
+<polygon points="698.00,140.00 702.24,169.76 732.00,174.00 702.24,178.24 698.00,208.00 693.76,178.24 664.00,174.00 693.76,169.76" fill="#B88A2A"/>
+<polygon points="755.00,220.00 756.56,230.44 767.00,232.00 756.56,233.56 755.00,244.00 753.44,233.56 743.00,232.00 753.44,230.44" fill="#B88A2A"/></g></pattern></defs><rect width="100%" height="100%" fill="#FBF8F2"/><rect width="100%" height="100%" fill="url(#p)"/></svg>

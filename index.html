@@ -157,8 +157,7 @@ ul{margin:0;padding:0;list-style:none}
 .panel__lines{position:absolute;inset:0;width:100%;height:100%}
 .panel__lines path{fill:none;stroke:var(--gold-500);stroke-width:1.4;opacity:.28}
 .panel__circle{position:absolute;top:12%;right:12%;width:32%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FBF8F2,#EAD9BF)}
-.panel .nail-hero{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:34%;filter:drop-shadow(0 26px 30px rgba(58,43,36,.26))}
-.panel .nail-hero.behind{left:38%;top:56%;width:26%;opacity:.9;transform:translate(-50%,-50%) rotate(-12deg)}
+.panel__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .sparkle-out{position:absolute;top:-14px;right:6%;width:44px;z-index:3}
 
 /* ============================================================ SECTIONS */
@@ -184,13 +183,13 @@ ul{margin:0;padding:0;list-style:none}
 .filter{font-family:var(--ff-body);font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:.6em 1.1em;cursor:pointer;transition:var(--t)}
 .filter:hover{border-color:var(--gold-500);color:var(--gold-700)}
 .filter.active{background:var(--espresso);border-color:var(--espresso);color:var(--white)}
-.lookbook{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.2vw,1.7rem)}
-.plate{background:var(--white);border:1px solid var(--line-gold);border-radius:var(--r-md);box-shadow:var(--shadow-card);padding:clamp(1.5rem,2.4vw,2.1rem) 1rem 1.3rem;display:flex;flex-direction:column;align-items:center;gap:1.1rem;transition:transform var(--t),box-shadow var(--t)}
-.plate:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft)}
+.lookbook{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1rem,2.2vw,1.7rem)}
+.plate{flex:0 1 340px;background:var(--white);border:1px solid var(--line-gold);border-radius:var(--r-md);box-shadow:var(--shadow-card);overflow:hidden;display:flex;flex-direction:column;transition:transform var(--t),box-shadow var(--t)}
+.plate:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft)}
 .plate.hide{display:none}
-.plate .nail{width:clamp(3.4rem,7.5vw,4.6rem);filter:drop-shadow(0 14px 16px rgba(58,43,36,.2));transition:transform var(--t)}
-.plate:hover .nail{transform:translateY(-3px)}
-.plate figcaption{text-align:center}
+.plate .photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.plate:hover .photo{transform:scale(1.04)}
+.plate figcaption{padding:1.05rem 1.1rem 1.2rem;text-align:center}
 .plate .cap-n{display:block;font-family:var(--ff-display);font-size:1.15rem;color:var(--charcoal)}
 .plate .cap-t{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.35em;font-weight:600}
 .port-foot{margin-top:clamp(2rem,4vw,2.8rem);text-align:center}
@@ -208,6 +207,7 @@ ul{margin:0;padding:0;list-style:none}
 .about__fig{position:relative}
 .about__card{aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;background:var(--grad-champagne);border:1px solid var(--line-gold);box-shadow:var(--shadow-lg);display:grid;place-items:center;position:relative}
 .about__card img.mono{width:46%;opacity:.9}
+.about__photo{width:100%;height:100%;object-fit:cover;object-position:58% 50%}
 .about__badge{position:absolute;top:-.85rem;left:-.85rem;background:var(--espresso);color:var(--ivory);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;padding:.7em 1.15em;border-radius:999px;font-weight:600;box-shadow:var(--shadow-card)}
 .about h2{font-size:clamp(2rem,4.2vw,2.9rem);margin-top:1rem}
 .about p{color:var(--muted);margin-top:1.15rem}
@@ -391,23 +391,10 @@ ul{margin:0;padding:0;list-style:none}
       </ul>
     </div>
 
-    <!-- Editorial panel — troque por foto real do seu trabalho quando quiser:
-         substitua o conteúdo do .panel por <img src="assets/sua-foto.jpg" alt="..."> -->
-    <div class="hero__visual" data-reveal aria-hidden="true">
-      <img class="sparkle-out" src="assets/sparkle-gold.svg" alt="">
+    <div class="hero__visual" data-reveal>
+      <img class="sparkle-out" src="assets/sparkle-gold.svg" alt="" aria-hidden="true">
       <div class="panel">
-        <svg class="panel__lines" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
-          <path d="M-40 90 C160 40 300 130 440 90 S680 40 660 96"/>
-          <path d="M-40 170 C160 118 300 214 440 170 S680 118 660 178"/>
-          <path d="M-40 250 C160 196 300 300 440 250 S680 196 660 258"/>
-          <path d="M-40 330 C160 288 300 366 440 330 S680 288 660 338"/>
-          <path d="M-40 410 C160 356 300 462 440 410 S680 356 660 418"/>
-          <path d="M-40 490 C160 448 300 528 440 490 S680 448 660 498"/>
-          <path d="M-40 570 C160 516 300 620 440 570 S680 516 660 578"/>
-        </svg>
-        <span class="panel__circle"></span>
-        <svg class="nail-hero behind" viewBox="0 0 100 180"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gChamp)"/><g clip-path="url(#clipNail)"><ellipse cx="37" cy="56" rx="6" ry="32" fill="#fff" opacity=".3" transform="rotate(-8 37 56)"/></g></svg>
-        <svg class="nail-hero" viewBox="0 0 100 180"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gNude)"/><g clip-path="url(#clipNail)"><path d="M20 150 C 46 112 34 62 66 30" fill="none" stroke="url(#gGold)" stroke-width="2.6" stroke-linecap="round"/><ellipse cx="37" cy="56" rx="7" ry="34" fill="#fff" opacity=".32" transform="rotate(-8 37 56)"/></g></svg>
+        <img class="panel__photo" src="assets/fotos/p-rose.jpg" alt="Unhas em gel rosé com detalhe de laço — Lara Maehata Nail Design" width="880" height="1100">
       </div>
     </div>
   </div>
@@ -463,32 +450,26 @@ ul{margin:0;padding:0;list-style:none}
       <button class="filter" data-filter="glitter">Glitter</button>
     </div>
 
-    <!-- Para exibir seus trabalhos reais, troque cada <svg class="nail"> por
-         <img class="nail" src="assets/foto-do-trabalho.jpg" alt="..."> -->
     <div class="lookbook" data-reveal>
       <figure class="plate" data-cat="nude">
-        <svg class="nail" viewBox="0 0 100 180" role="img" aria-label="Unha nude natural"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gNude)"/><g clip-path="url(#clipNail)"><ellipse cx="37" cy="56" rx="7" ry="34" fill="#fff" opacity=".3" transform="rotate(-8 37 56)"/></g></svg>
-        <figcaption><span class="cap-n">Nude Natural</span><span class="cap-t">Esmaltação em gel</span></figcaption>
+        <img class="photo" src="assets/fotos/p-rose.jpg" alt="Unhas em gel rosé com detalhe de laço" loading="lazy" width="880" height="1100">
+        <figcaption><span class="cap-n">Ros&eacute; &amp; La&ccedil;o</span><span class="cap-t">Nail art autoral</span></figcaption>
       </figure>
       <figure class="plate" data-cat="classico">
-        <svg class="nail" viewBox="0 0 100 180" role="img" aria-label="Francesinha com sorriso dourado"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gNude)"/><g clip-path="url(#clipNail)"><ellipse cx="50" cy="16" rx="44" ry="30" fill="#FBF6EC"/><path d="M12 42 Q50 22 88 42" fill="none" stroke="url(#gGold)" stroke-width="2" stroke-linecap="round"/><ellipse cx="37" cy="70" rx="6" ry="30" fill="#fff" opacity=".3" transform="rotate(-8 37 70)"/></g></svg>
-        <figcaption><span class="cap-n">Francesinha</span><span class="cap-t">Detalhe em ouro</span></figcaption>
-      </figure>
-      <figure class="plate" data-cat="glitter">
-        <svg class="nail" viewBox="0 0 100 180" role="img" aria-label="Unha champagne com glitter"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gChamp)"/><g clip-path="url(#clipNail)"><g fill="#fff"><circle cx="34" cy="40" r="1.5"/><circle cx="50" cy="30" r="1.8"/><circle cx="64" cy="44" r="1.4"/><circle cx="42" cy="60" r="1.5"/><circle cx="58" cy="66" r="1.6"/><circle cx="70" cy="60" r="1.3"/><circle cx="30" cy="70" r="1.3"/><circle cx="50" cy="90" r="1.5"/><circle cx="66" cy="96" r="1.4"/><circle cx="38" cy="104" r="1.4"/></g><g fill="#E7C66D"><circle cx="46" cy="48" r="1.3"/><circle cx="60" cy="82" r="1.3"/><circle cx="34" cy="90" r="1.2"/></g><ellipse cx="37" cy="66" rx="6" ry="30" fill="#fff" opacity=".26" transform="rotate(-8 37 66)"/></g></svg>
-        <figcaption><span class="cap-n">Champagne Glow</span><span class="cap-t">Brilho suave</span></figcaption>
+        <img class="photo" src="assets/fotos/p-vermelho.jpg" alt="Unhas vermelhas com swirl branco e dourado" loading="lazy" width="800" height="1000">
+        <figcaption><span class="cap-n">Vermelho &amp; Ouro</span><span class="cap-t">Cl&aacute;ssico</span></figcaption>
       </figure>
       <figure class="plate" data-cat="classico">
-        <svg class="nail" viewBox="0 0 100 180" role="img" aria-label="Unha espresso com brilho"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gEspresso)"/><g clip-path="url(#clipNail)"><ellipse cx="37" cy="56" rx="7" ry="34" fill="#fff" opacity=".22" transform="rotate(-8 37 56)"/></g></svg>
-        <figcaption><span class="cap-n">Espresso Chic</span><span class="cap-t">Cor marcante</span></figcaption>
-      </figure>
-      <figure class="plate" data-cat="nude">
-        <svg class="nail" viewBox="0 0 100 180" role="img" aria-label="Unha rosé acetinada"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gRose)"/><g clip-path="url(#clipNail)"><ellipse cx="37" cy="56" rx="7" ry="34" fill="#fff" opacity=".24" transform="rotate(-8 37 56)"/></g></svg>
-        <figcaption><span class="cap-n">Rosé Suave</span><span class="cap-t">Nude rosado</span></figcaption>
+        <img class="photo" src="assets/fotos/p-francesinha.jpg" alt="Francesinha branca com la&ccedil;o em relevo" loading="lazy" width="800" height="1000">
+        <figcaption><span class="cap-n">Francesinha &amp; La&ccedil;o</span><span class="cap-t">Cl&aacute;ssico</span></figcaption>
       </figure>
       <figure class="plate" data-cat="autoral">
-        <svg class="nail" viewBox="0 0 100 180" role="img" aria-label="Nude com linha dourada minimalista"><path d="M50 174 C 26 172 15 150 14 116 C 13 78 24 26 50 8 C 76 26 87 78 86 116 C 85 150 74 172 50 174 Z" fill="url(#gSand)"/><g clip-path="url(#clipNail)"><path d="M64 14 L30 168" stroke="url(#gGold)" stroke-width="2.4" stroke-linecap="round"/><path d="M74 26 L44 172" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".6"/><ellipse cx="35" cy="60" rx="5.5" ry="28" fill="#fff" opacity=".22" transform="rotate(-8 35 60)"/></g></svg>
-        <figcaption><span class="cap-n">Linha Dourada</span><span class="cap-t">Nail art autoral</span></figcaption>
+        <img class="photo" src="assets/fotos/p-coffin.jpg" alt="Unhas coffin vermelhas com animal print e brilhos" loading="lazy" width="800" height="1000">
+        <figcaption><span class="cap-n">Coffin Animal Print</span><span class="cap-t">Nail art autoral</span></figcaption>
+      </figure>
+      <figure class="plate" data-cat="glitter">
+        <img class="photo" src="assets/fotos/p-stiletto.jpg" alt="Unhas stiletto com francesinha e glitter prata" loading="lazy" width="800" height="1000">
+        <figcaption><span class="cap-n">Stiletto Prata</span><span class="cap-t">Glitter</span></figcaption>
       </figure>
     </div>
 
@@ -534,9 +515,8 @@ ul{margin:0;padding:0;list-style:none}
 <section class="section" id="sobre" aria-labelledby="sobre-title">
   <div class="wrap about">
     <div class="about__fig" data-reveal>
-      <!-- Troque por sua foto: <div class="about__card"><img src="assets/lara.jpg" alt="Lara Maehata"></div> -->
       <span class="about__badge">Nail Designer</span>
-      <div class="about__card"><img class="mono" src="assets/loading-mark.svg" alt="Monograma Lara Maehata"></div>
+      <div class="about__card"><img class="about__photo" src="assets/fotos/lara.jpg" alt="Lara, nail designer do Lara Maehata Nail Design" width="753" height="941"></div>
     </div>
     <div>
       <span class="eyebrow" data-reveal>Sobre</span>
